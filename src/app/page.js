@@ -256,6 +256,10 @@ export default function Home() {
     />
   </TabPanel>
   */}
+ <TabPanel header="Dashboard" leftIcon="pi pi-chart-line mr-2">
+    <PowerBiDashboardTab />
+  </TabPanel>
+
   <TabPanel header="Predicciones" leftIcon="pi pi-bolt mr-2">
   <PredictionsTab
     loading={loading}
@@ -275,9 +279,7 @@ export default function Home() {
   />
 </TabPanel>
 
-  <TabPanel header="Dashboard" leftIcon="pi pi-chart-line mr-2">
-    <PowerBiDashboardTab />
-  </TabPanel>
+ 
 </TabView>
     </main>
   );

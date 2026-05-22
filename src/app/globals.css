@@ -1,0 +1,78 @@
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-family), sans-serif;
+  font-weight: normal;
+  background: var(--surface-ground);
+  color: var(--text-color);
+  margin: 0;
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--surface-border);
+}
+
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: var(--text-color-secondary);
+  margin-top: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.metric-label {
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+}
+
+.confusion-grid {
+  display: grid;
+  grid-template-columns: 130px repeat(2, 1fr);
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.confusion-cell {
+  background: var(--surface-ground);
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.confusion-header {
+  font-weight: 700;
+  color: var(--text-color-secondary);
+}
+
+.confusion-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

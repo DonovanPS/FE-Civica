@@ -11,6 +11,7 @@ import ModelsTab from "@/components/dashboard/ModelsTab";
 import PageHeader from "@/components/dashboard/PageHeader";
 import PredictionsTab from "@/components/dashboard/PredictionsTab";
 import SummaryTab from "@/components/dashboard/SummaryTab";
+import PowerBiDashboardTab from "@/components/dashboard/PowerBiDashboardTab";
 import { formatDate, parseLocalDate } from "@/utils/dateUtils";
 import ApiService from "@/service/apiService";
 
@@ -40,7 +41,7 @@ export default function Home() {
   const [predFechaInicio, setPredFechaInicio] = useState(null);
   const [predFechaFin, setPredFechaFin] = useState(null);
   const [predIdUser, setPredIdUser] = useState(null);
-  const [predModelo, setPredModelo] = useState("stacking");
+  //const [predModelo, setPredModelo] = useState("stacking");
 
   const showError = (error) => {
     toast.current?.show({
@@ -187,7 +188,7 @@ export default function Home() {
     try {
       const params = {
         id_user: predIdUser,
-        modelo: predModelo,
+        modelo: "stacking",
       };
 
       if (predModo === "fecha") {
@@ -244,7 +245,7 @@ export default function Home() {
     />
   </TabPanel>
 
-  <TabPanel header="Modelos" leftIcon="pi pi-sitemap mr-2">
+  {/*<TabPanel header="Modelos" leftIcon="pi pi-sitemap mr-2">
     <ModelsTab
       loading={loading}
       metricas={metricas}
@@ -254,26 +255,28 @@ export default function Home() {
       onConsultarDetalle={() => consultarDetalleModelo()}
     />
   </TabPanel>
-
+  */}
   <TabPanel header="Predicciones" leftIcon="pi pi-bolt mr-2">
-    <PredictionsTab
-      loading={loading}
-      predicciones={predicciones}
-      asesoresOptions={asesoresOptions}
-      predModo={predModo}
-      predFecha={predFecha}
-      predFechaInicio={predFechaInicio}
-      predFechaFin={predFechaFin}
-      predIdUser={predIdUser}
-      predModelo={predModelo}
-      onChangeModo={setPredModo}
-      onChangeFecha={setPredFecha}
-      onChangeFechaInicio={setPredFechaInicio}
-      onChangeFechaFin={setPredFechaFin}
-      onChangeAsesor={setPredIdUser}
-      onChangeModelo={setPredModelo}
-      onConsultar={consultarPredicciones}
-    />
+  <PredictionsTab
+    loading={loading}
+    predicciones={predicciones}
+    asesoresOptions={asesoresOptions}
+    predModo={predModo}
+    predFecha={predFecha}
+    predFechaInicio={predFechaInicio}
+    predFechaFin={predFechaFin}
+    predIdUser={predIdUser}
+    onChangeModo={setPredModo}
+    onChangeFecha={setPredFecha}
+    onChangeFechaInicio={setPredFechaInicio}
+    onChangeFechaFin={setPredFechaFin}
+    onChangeAsesor={setPredIdUser}
+    onConsultar={consultarPredicciones}
+  />
+</TabPanel>
+
+  <TabPanel header="Dashboard" leftIcon="pi pi-chart-line mr-2">
+    <PowerBiDashboardTab />
   </TabPanel>
 </TabView>
     </main>

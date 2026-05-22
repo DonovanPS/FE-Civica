@@ -6,7 +6,7 @@ import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import { Dropdown } from "primereact/dropdown";
 
-import { MODELOS, TIPOS_PREDICCION } from "@/constants/dashboardOptions";
+import { TIPOS_PREDICCION } from "@/constants/dashboardOptions";
 import {
   cumpleBody,
   probabilityBody,
@@ -22,13 +22,11 @@ export default function PredictionsTab({
   predFechaInicio,
   predFechaFin,
   predIdUser,
-  predModelo,
   onChangeModo,
   onChangeFecha,
   onChangeFechaInicio,
   onChangeFechaFin,
   onChangeAsesor,
-  onChangeModelo,
   onConsultar,
 }) {
   return (
@@ -82,16 +80,6 @@ export default function PredictionsTab({
             </>
           )}
 
-          <div className="col-12 md:col-3">
-            <label className="block mb-2">Modelo</label>
-            <Dropdown
-              className="w-full"
-              value={predModelo}
-              options={MODELOS}
-              onChange={(e) => onChangeModelo(e.value)}
-            />
-          </div>
-
           <div className="col-12 md:col-4">
             <label className="block mb-2">Asesor opcional</label>
             <Dropdown
@@ -107,7 +95,7 @@ export default function PredictionsTab({
             />
           </div>
 
-          <div className="col-12 md:col-3 flex align-items-end">
+          <div className="col-12 md:col-2 flex align-items-end">
             <Button
               className="w-full"
               label="Predecir"
@@ -116,6 +104,10 @@ export default function PredictionsTab({
               loading={loading}
             />
           </div>
+        </div>
+
+        <div className="mt-3 text-sm text-color-secondary">
+          Modelo utilizado para la predicción: <b>stacking</b>.
         </div>
       </div>
 
